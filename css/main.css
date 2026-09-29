@@ -1,27 +1,22 @@
-/* DESIGN SYSTEM - SKYMATRIX AIRPORT SIMULATION & SCROLL ENGINE */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* AEROLUX / AIRPORT SIMULATION DESIGN SYSTEM */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    --bg-dark: #070a0f;
-    --bg-surface: #0e141d;
-    --bg-card: rgba(14, 20, 29, 0.72);
+    --bg-dark: #0b0f14;
+    --bg-surface: #121820;
+    --bg-card: rgba(18, 24, 32, 0.75);
+    --border-glass: rgba(255, 255, 255, 0.12);
+    --border-light: rgba(255, 255, 255, 0.06);
     
-    --border-glass: rgba(255, 255, 255, 0.14);
-    --border-glass-hover: rgba(0, 229, 255, 0.45);
-    --border-light: rgba(255, 255, 255, 0.08);
-    
-    /* Sleek Aerospace Ice Cyan / Electric Blue Palette (NO GOLD) */
-    --color-accent: #00e5ff;
-    --color-accent-blue: #38bdf8;
-    --color-accent-hover: #7dd3fc;
-    --color-accent-glow: rgba(0, 229, 255, 0.35);
+    --color-gold: #d4af37;
+    --color-amber: #f59e0b;
+    --color-gold-hover: #e5a93c;
     
     --color-text-main: #f8fafc;
     --color-text-muted: #94a3b8;
     --color-text-dim: #64748b;
 
     --status-blue: #38bdf8;
-    --status-cyan: #00e5ff;
     --status-green: #10b981;
     --status-yellow: #f59e0b;
     --status-red: #ef4444;
@@ -32,7 +27,7 @@
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    --glass-blur: blur(20px) saturate(180%);
+    --glass-blur: blur(24px) saturate(180%);
 }
 
 * {
@@ -40,7 +35,6 @@
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -51,39 +45,12 @@ body {
     line-height: 1.5;
 }
 
-/* ALL BUTTONS IN FROSTED GLASS THEME */
-button, .btn-frosted {
+button {
     font-family: var(--font-sans);
     cursor: pointer;
-    border: 1px solid var(--border-glass);
+    border: none;
     outline: none;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    color: #f1f5f9;
-    border-radius: 9999px;
-    padding: 9px 22px;
-    font-size: 12.5px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-button:hover, .btn-frosted:hover {
-    background: rgba(0, 229, 255, 0.12);
-    border-color: var(--border-glass-hover);
-    color: #ffffff;
-    box-shadow: 0 0 20px var(--color-accent-glow);
-    transform: translateY(-1.5px);
-}
-
-button:active, .btn-frosted:active {
-    transform: translateY(0);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 input, select, textarea {
@@ -91,16 +58,13 @@ input, select, textarea {
     color: var(--color-text-main);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-glass);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 8px 12px;
     outline: none;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: var(--color-accent);
-    box-shadow: 0 0 12px var(--color-accent-glow);
+    border-color: var(--color-gold);
 }
 
 /* Glassmorphism primitives */
@@ -109,8 +73,8 @@ input:focus, select:focus, textarea:focus {
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--border-glass);
-    border-radius: 16px;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.6);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
 }
 
 .pill-tag {
@@ -120,9 +84,8 @@ input:focus, select:focus, textarea:focus {
     padding: 6px 16px;
     border-radius: 9999px;
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -133,16 +96,16 @@ input:focus, select:focus, textarea:focus {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: var(--color-accent);
-    box-shadow: 0 0 10px var(--color-accent);
+    background-color: var(--color-gold);
+    box-shadow: 0 0 8px var(--color-gold);
 }
 
-.text-accent {
-    color: var(--color-accent);
+.text-gold {
+    color: var(--color-gold);
 }
 
-.text-cyan {
-    color: var(--color-accent);
+.text-amber {
+    color: var(--color-amber);
 }
 
 .text-muted {

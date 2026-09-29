@@ -1,0 +1,8 @@
+{
+  "name": "AEROLUX • Autonomous Airport Operations & Scheduling Management System",
+  "description": "Autonomous Airport Operations & Scheduling Management System featuring interactive aircraft turnaround scheduling, radar simulation, DAG task optimization, and luxury fleet operations.",
+  "prompt": "Autonomous Airport Operations & Scheduling Management System",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

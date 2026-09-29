@@ -1,0 +1,15 @@
+{
+  "name": "aerolux-airport-operations",
+  "version": "1.0.0",
+  "description": "AEROLUX • Autonomous Airport Operations & Scheduling Management System",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build required for static site'"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

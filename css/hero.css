@@ -5,10 +5,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: #06090e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--bg-dark);
 }
 
 #hero-canvas {
@@ -19,12 +16,9 @@
     height: 100%;
     display: block;
     z-index: 1;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    image-rendering: high-quality;
 }
 
-/* Subtle border fade only at extreme screen edges - NO image blurring! */
+/* Atmospheric Noise / Gradient Overlay */
 .hero-vignette {
     position: absolute;
     top: 0;
@@ -33,26 +27,26 @@
     height: 100%;
     z-index: 2;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 50%, rgba(6, 9, 14, 0.0) 65%, rgba(6, 9, 14, 0.45) 100%);
+    background: radial-gradient(circle at 50% 50%, rgba(11, 15, 20, 0.1) 0%, rgba(11, 15, 20, 0.7) 100%);
 }
 
-/* Header */
+/* Header matching media_1790656803151.png */
 .hero-header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 34px 54px;
+    padding: 36px 54px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 10;
 }
 
-.brand-title {
-    font-size: 16px;
+.aerolux-brand {
+    font-size: 17px;
     letter-spacing: 0.28em;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     color: #ffffff;
     display: flex;
@@ -62,11 +56,11 @@
 }
 
 .brand-dot {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background-color: var(--color-accent);
-    box-shadow: 0 0 12px var(--color-accent);
+    background-color: var(--color-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
 }
 
 .hero-nav {
@@ -80,37 +74,33 @@
     border-radius: 9999px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(16px);
     color: #cbd5e1;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.04em;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease;
 }
 
 .nav-pill:hover {
-    background: rgba(0, 229, 255, 0.12);
-    border-color: rgba(0, 229, 255, 0.45);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
     color: #ffffff;
-    box-shadow: 0 0 20px var(--color-accent-glow);
-    transform: translateY(-1.5px);
+    transform: translateY(-1px);
 }
 
 .nav-pill-highlight {
-    background: rgba(0, 229, 255, 0.14);
-    border-color: rgba(0, 229, 255, 0.45);
-    color: #e0f2fe;
-    font-weight: 500;
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.45);
+    color: #fef08a;
 }
 
 .nav-pill-highlight:hover {
-    background: rgba(0, 229, 255, 0.25);
-    border-color: var(--color-accent);
+    background: rgba(212, 175, 55, 0.25);
+    border-color: var(--color-gold);
     color: #ffffff;
-    box-shadow: 0 0 24px var(--color-accent-glow);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 /* Center Hero Typography */
@@ -121,7 +111,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 5;
-    max-width: 840px;
+    max-width: 820px;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -131,62 +121,59 @@
 
 .hero-pill-badge {
     margin-bottom: 24px;
-    border-color: rgba(0, 229, 255, 0.28);
 }
 
 .hero-main-title {
     font-family: var(--font-serif);
-    font-size: 88px;
+    font-size: 82px;
     font-weight: 300;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #ffffff;
-    line-height: 1.0;
+    line-height: 1.05;
     margin-bottom: 20px;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
     font-size: 15px;
     font-weight: 300;
-    color: #cbd5e1;
-    max-width: 640px;
+    color: #94a3b8;
+    max-width: 620px;
     line-height: 1.7;
     letter-spacing: 0.02em;
-    margin-bottom: 34px;
+    margin-bottom: 32px;
 }
 
 .hero-cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 32px;
+    padding: 12px 30px;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(16px);
     color: #ffffff;
     font-size: 13.5px;
     letter-spacing: 0.04em;
     font-weight: 400;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .hero-cta-btn:hover {
-    background: rgba(0, 229, 255, 0.16);
-    border-color: var(--color-accent);
-    box-shadow: 0 0 25px var(--color-accent-glow);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
-/* Footer HUD */
+/* Footer matching media_1790656803151.png */
 .hero-footer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 34px 54px;
+    padding: 36px 54px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -204,17 +191,16 @@
 }
 
 .route-tag {
-    color: var(--color-accent);
+    color: var(--color-amber);
     font-weight: 600;
-    letter-spacing: 0.12em;
 }
 
 .route-divider {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.25);
 }
 
 .fleet-protocol-hud {
-    color: #94a3b8;
+    color: #64748b;
     font-size: 11px;
 }
 
@@ -231,14 +217,14 @@
 
 .frosted-card {
     position: absolute;
-    width: 350px;
+    width: 340px;
     padding: 24px;
-    background: rgba(10, 15, 22, 0.72);
+    background: rgba(11, 15, 20, 0.72);
     backdrop-filter: blur(28px) saturate(190%);
     -webkit-backdrop-filter: blur(28px) saturate(190%);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 18px;
-    box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     color: #f8fafc;
     opacity: 0;
     pointer-events: none;
@@ -264,7 +250,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 12px;
-    padding: 7px 0;
+    padding: 6px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -275,24 +261,19 @@
 .card-action-btn {
     width: 100%;
     margin-top: 16px;
-    padding: 11px;
-    background: rgba(255, 255, 255, 0.07);
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 9999px;
+    border-radius: 8px;
     color: #ffffff;
     font-size: 12px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .card-action-btn:hover {
-    background: rgba(0, 229, 255, 0.18);
-    border-color: var(--color-accent);
-    box-shadow: 0 0 20px var(--color-accent-glow);
-    transform: translateY(-1.5px);
+    background: rgba(212, 175, 55, 0.25);
+    border-color: var(--color-gold);
 }
 
 /* Positioning cards in negative sky/clouds spaces */
@@ -302,7 +283,7 @@
 }
 
 #card-negative-2 {
-    bottom: 115px;
+    bottom: 120px;
     left: 80px;
 }
 
@@ -312,10 +293,10 @@
 }
 
 #card-negative-4 {
-    bottom: 125px;
+    bottom: 130px;
     left: 50%;
     transform: translateX(-50%);
-    width: 460px;
+    width: 440px;
     text-align: center;
 }
 
@@ -329,208 +310,68 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    background: rgba(10, 16, 24, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 9999px;
-    padding: 9px 26px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    padding: 8px 24px;
 }
 
 #flight-scrubber {
     -webkit-appearance: none;
     appearance: none;
-    width: 200px;
+    width: 180px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 2px;
     outline: none;
 }
 
 #flight-scrubber::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: var(--color-gold);
     cursor: pointer;
-    box-shadow: 0 0 12px var(--color-accent);
-    transition: transform 0.15s ease;
-}
-
-#flight-scrubber::-webkit-slider-thumb:hover {
-    transform: scale(1.25);
+    box-shadow: 0 0 8px var(--color-gold);
 }
 
 #hud-frame-counter {
     font-size: 10px;
     font-family: var(--font-mono);
-    color: var(--color-accent);
+    color: #94a3b8;
     letter-spacing: 0.1em;
 }
 
-/* ========================================================================= */
-/* CREATIVE AVIONICS HUD LOADING BAR (REPLACES BASIC LINE) */
-/* ========================================================================= */
+/* Preloader */
 .preloader-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #06090e;
-    z-index: 100;
+    background: var(--bg-dark);
+    z-index: 50;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+    transition: opacity 0.5s ease;
 }
 
-.creative-hud-loader {
-    width: 520px;
-    max-width: 90vw;
-    background: rgba(12, 18, 26, 0.85);
-    border: 1px solid rgba(0, 229, 255, 0.35);
-    border-radius: 24px;
-    padding: 34px 40px;
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 229, 255, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.preloader-bar {
+    width: 240px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 18px;
     position: relative;
     overflow: hidden;
 }
 
-.creative-hud-loader::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 60%);
-    pointer-events: none;
-    animation: rotateRings 12s linear infinite;
-}
-
-@keyframes rotateRings {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loader-brand {
-    font-size: 18px;
-    letter-spacing: 0.3em;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-/* Radar Scope Graphic */
-.loader-radar-scope {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 229, 255, 0.35);
-    position: relative;
-    margin-bottom: 24px;
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.15) inset;
-}
-
-.loader-radar-scope::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--color-accent));
-    transform-origin: 0 0;
-    animation: radarSweep 2.2s linear infinite;
-}
-
-.radar-crosshair-h {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: rgba(0, 229, 255, 0.15);
-}
-
-.radar-crosshair-v {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    background: rgba(0, 229, 255, 0.15);
-}
-
-@keyframes radarSweep {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Flight Track with Moving Jet */
-.loader-flight-track {
-    width: 100%;
-    position: relative;
-    margin-bottom: 18px;
-}
-
-.loader-runway-track {
-    width: 100%;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 3px;
-    overflow: hidden;
-    position: relative;
-}
-
-.loader-runway-fill {
-    height: 100%;
+#preloader-fill {
     width: 0%;
-    background: linear-gradient(90deg, #0284c7, var(--color-accent));
-    box-shadow: 0 0 16px var(--color-accent);
+    height: 100%;
+    background: var(--color-gold);
     transition: width 0.15s ease;
-}
-
-.loader-plane-glider {
-    position: absolute;
-    top: -18px;
-    left: 0%;
-    transform: translateX(-50%);
-    font-size: 15px;
-    color: var(--color-accent);
-    filter: drop-shadow(0 0 8px var(--color-accent));
-    transition: left 0.15s ease;
-}
-
-.loader-telemetry-meta {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: #94a3b8;
-    margin-top: 10px;
-}
-
-.loader-pulse-tag {
-    color: var(--color-accent);
-    animation: blinkGlow 1.4s infinite;
-}
-
-@keyframes blinkGlow {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
 }

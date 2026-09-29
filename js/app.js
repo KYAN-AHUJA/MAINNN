@@ -380,13 +380,13 @@ class App {
                 currentTime: this.sim.currentTime,
                 failures: this.resourceManager.failures
             };
-            localStorage.setItem('skymatrix_saved_scenario', JSON.stringify(payload));
+            localStorage.setItem('aerolux_saved_scenario', JSON.stringify(payload));
             alert('Scenario successfully saved to local browser storage.');
         });
 
         // Load
         document.getElementById('btn-load-scenario')?.addEventListener('click', () => {
-            const data = localStorage.getItem('skymatrix_saved_scenario');
+            const data = localStorage.getItem('aerolux_saved_scenario');
             if (!data) {
                 alert('No saved scenario found in storage.');
                 return;

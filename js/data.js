@@ -1,5 +1,5 @@
 /**
- * SKYMATRIX / AIRPORT OPERATIONS SIMULATION DATA MODEL
+ * AEROLUX / AIRPORT OPERATIONS SIMULATION DATA MODEL
  * Comprehensive initial fleet, gates, staff categories, and ground equipment
  */
 
@@ -111,7 +111,7 @@ export const INITIAL_AIRCRAFT = [
     {
         id: 'AC-700',
         flightNumber: 'AL700',
-        airline: 'Imperium Executive',
+        airline: 'AeroLux Private',
         aircraftType: 'Gulfstream G700',
         category: 'Executive',
         arrivalTime: 490, // 08:10
@@ -255,7 +255,7 @@ export const INITIAL_AIRCRAFT = [
     {
         id: 'AC-710',
         flightNumber: 'AL710',
-        airline: 'Imperium Executive',
+        airline: 'AeroLux Private',
         aircraftType: 'Bombardier Global 7500',
         category: 'Executive',
         arrivalTime: 535, // 08:55
@@ -375,7 +375,7 @@ export const INITIAL_AIRCRAFT = [
     {
         id: 'AC-730',
         flightNumber: 'AL730',
-        airline: 'Imperium Executive',
+        airline: 'AeroLux Private',
         aircraftType: 'Dassault Falcon 8X',
         category: 'Executive',
         arrivalTime: 580, // 09:40
@@ -471,7 +471,7 @@ export const INITIAL_AIRCRAFT = [
     {
         id: 'AC-740',
         flightNumber: 'AL740',
-        airline: 'Imperium Executive',
+        airline: 'AeroLux Private',
         aircraftType: 'Gulfstream G650ER',
         category: 'Executive',
         arrivalTime: 620, // 10:20

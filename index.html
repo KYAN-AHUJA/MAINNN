@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKYMATRIX • Simulation-Based Airport Scheduling & Ground Operations Management System</title>
+    <title>AEROLUX • Autonomous Airport Operations & Scheduling Management System</title>
+    <meta name="description" content="Autonomous Airport Operations & Scheduling Management System featuring interactive aircraft turnaround scheduling, radar simulation, DAG task optimization, and luxury fleet operations.">
+    <meta property="og:title" content="AEROLUX • Autonomous Airport Operations & Scheduling Management System">
+    <meta property="og:description" content="Autonomous Airport Operations & Scheduling Management System featuring interactive aircraft turnaround scheduling, radar simulation, DAG task optimization, and luxury fleet operations.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/dashboard.css">
@@ -12,74 +15,53 @@
 
     <!-- ========================================================================= -->
     <!-- 1. LANDING PAGE & SCROLL EXPERIENCE (ATMOS.LEEROY.CA / IGLOO.INC STYLE) -->
-    <!-- Fullscreen crisp, unblurred, zoomed-out 480-step virtual frame playback -->
+    <!-- Matches user uploaded reference layout image media_1790656803151.png -->
     <!-- ========================================================================= -->
     <section class="hero-viewport-container" id="hero-section">
         
-        <!-- Canvas scrubbing 240 high-res private jet frames with sub-frame interpolation -->
+        <!-- Canvas scrubbing 240 high-res private jet frames -->
         <canvas id="hero-canvas"></canvas>
         <div class="hero-vignette"></div>
 
-        <!-- Creative Avionics HUD Preloader -->
+        <!-- Preloader -->
         <div class="preloader-overlay" id="hero-preloader">
-            <div class="creative-hud-loader">
-                <div class="loader-brand">
-                    SKYMATRIX <span class="brand-dot"></span>
-                </div>
-                
-                <!-- Radar Scope graphic with rotating sweep and crosshairs -->
-                <div class="loader-radar-scope">
-                    <div class="radar-crosshair-h"></div>
-                    <div class="radar-crosshair-v"></div>
-                </div>
-
-                <!-- Runway track with gliding supersonic jet icon -->
-                <div class="loader-flight-track">
-                    <div class="loader-plane-glider" id="loader-plane-glider">✈</div>
-                    <div class="loader-runway-track">
-                        <div class="loader-runway-fill" id="loader-runway-fill"></div>
-                    </div>
-                </div>
-
-                <!-- Telemetry readout -->
-                <div class="loader-telemetry-meta">
-                    <span class="loader-pulse-tag" id="loader-status-text">INITIALIZING AVIONICS ENGINE</span>
-                    <span id="loader-percent" style="color: #ffffff; font-weight: 700;">0%</span>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 9.5px; color: #64748b; margin-top: 12px; letter-spacing: 0.12em;">
-                    FLIGHT LEVEL 450 // CRUISE MACH 0.90 // 480 VIRTUAL FRAMES
-                </div>
+            <div class="aerolux-brand">
+                AEROLUX <span class="brand-dot"></span>
             </div>
+            <div class="preloader-bar">
+                <div id="preloader-fill"></div>
+            </div>
+            <div id="preloader-count" class="text-xs text-muted" style="margin-top: 8px; font-family: var(--font-mono);">0%</div>
         </div>
 
-        <!-- Top Navigation Header -->
+        <!-- Top Navigation Header (Exact Reference Match) -->
         <header class="hero-header">
-            <div class="brand-title">
-                SKYMATRIX <span class="brand-dot"></span>
+            <div class="aerolux-brand">
+                AEROLUX <span class="brand-dot"></span>
             </div>
             <nav class="hero-nav">
-                <!-- Changed 'In Hangar' and 'In Air' to 'Live Operations' as requested -->
-                <a href="#live-operations" class="nav-pill nav-pill-highlight btn-launch-operations btn-frosted" data-target-tab="radar">Live Operations ⚡</a>
-                <a href="#radar" class="nav-pill btn-launch-operations btn-frosted" data-target-tab="radar">Airfield Radar</a>
-                <a href="#routes" class="nav-pill btn-launch-operations btn-frosted" data-target-tab="flights">Routes</a>
-                <a href="#inquire" class="nav-pill btn-launch-operations btn-frosted" data-target-tab="scenarios">Inquire</a>
+                <a href="#hangar" class="nav-pill btn-launch-operations" data-target-tab="resources">In Hangar</a>
+                <a href="#air" class="nav-pill btn-launch-operations" data-target-tab="radar">In Air</a>
+                <a href="#routes" class="nav-pill btn-launch-operations" data-target-tab="flights">Routes</a>
+                <a href="#operations" class="nav-pill nav-pill-highlight btn-launch-operations" data-target-tab="radar">Operations Console ⚡</a>
+                <a href="#inquire" class="nav-pill btn-launch-operations" data-target-tab="scenarios">Inquire</a>
             </nav>
         </header>
 
-        <!-- Center Hero Typography -->
+        <!-- Center Hero Typography (Exact Reference Match) -->
         <div class="hero-center-content" id="hero-main-center">
             <div class="pill-tag hero-pill-badge" id="hero-flight-level">
                 <span class="dot"></span> FLIGHT LEVEL 450 • CRUISE MACH 0.90
             </div>
             <h1 class="hero-main-title">IMPERIUM</h1>
             <p class="hero-subtitle">
-                Bespoke Private Aviation & Airfield Control Suite. Unrivaled discretion, tailored precision, and serene altitude.
+                Bespoke Private Aviation & Global Charter Fleet. Unrivaled discretion, tailored precision, and serene altitude.
             </p>
             <div style="display: flex; gap: 14px; align-items: center;">
-                <button class="hero-cta-btn btn-launch-operations btn-frosted" data-target-tab="flights">
+                <button class="hero-cta-btn btn-launch-operations" data-target-tab="flights">
                     Fleet Specifications ↗
                 </button>
-                <button class="hero-cta-btn btn-launch-operations btn-frosted" data-target-tab="radar" style="background: rgba(0, 229, 255, 0.16); border-color: var(--color-accent); color: #ffffff;">
+                <button class="hero-cta-btn btn-launch-operations" data-target-tab="radar" style="background: rgba(212, 175, 55, 0.2); border-color: var(--color-gold);">
                     Ground Operations System ⚡
                 </button>
             </div>
@@ -88,7 +70,7 @@
         <!-- FROSTED GLASS CARDS FLOATING IN NEGATIVE AIR SPACES (IGLOO.INC STYLE) -->
         <div class="frosted-cards-layer" id="frosted-cards-layer">
             
-            <!-- Card 1: Frame 15-75 in Upper Right Sky -->
+            <!-- Card 1: Frame 20-70 in Upper Right Sky -->
             <div class="frosted-card" id="card-negative-1">
                 <div class="frosted-card-header">
                     <h4>Precision Turnaround Matrix</h4>
@@ -96,7 +78,7 @@
                 </div>
                 <div class="card-telemetry-row">
                     <span class="text-muted">Airfield Status</span>
-                    <span id="hero-stat-planes" class="text-cyan">12 Active</span>
+                    <span id="hero-stat-planes" class="text-gold">12 Active</span>
                 </div>
                 <div class="card-telemetry-row">
                     <span class="text-muted">Flagship N700AL</span>
@@ -106,14 +88,14 @@
                     <span class="text-muted">On-Time Performance</span>
                     <span id="hero-stat-ontime" class="text-success">98.4% On-Time</span>
                 </div>
-                <button class="card-action-btn btn-launch-operations btn-frosted" data-target-tab="radar">Inspect Airfield Radar ➔</button>
+                <button class="card-action-btn btn-launch-operations" data-target-tab="radar">Inspect Airfield Radar ➔</button>
             </div>
 
-            <!-- Card 2: Frame 78-140 in Lower Left Clouds -->
+            <!-- Card 2: Frame 75-135 in Lower Left Clouds -->
             <div class="frosted-card" id="card-negative-2">
                 <div class="frosted-card-header">
                     <h4>Turnaround DAG & Resources</h4>
-                    <span class="text-cyan text-xs" style="font-family: var(--font-mono);">CRITICAL PATH</span>
+                    <span class="text-gold text-xs" style="font-family: var(--font-mono);">CRITICAL PATH</span>
                 </div>
                 <div class="card-telemetry-row">
                     <span class="text-muted">Parallel Track</span>
@@ -125,12 +107,12 @@
                 </div>
                 <div class="card-telemetry-row">
                     <span class="text-muted">Turnaround Progress</span>
-                    <span class="text-cyan">35% Nominal</span>
+                    <span class="text-amber">35% Nominal</span>
                 </div>
-                <button class="card-action-btn btn-launch-operations btn-frosted" data-target-tab="gantt">View Live Gantt Schedule ➔</button>
+                <button class="card-action-btn btn-launch-operations" data-target-tab="gantt">View Live Gantt Schedule ➔</button>
             </div>
 
-            <!-- Card 3: Frame 142-195 in Right Flank Airspace -->
+            <!-- Card 3: Frame 140-190 in Right Flank Airspace -->
             <div class="frosted-card" id="card-negative-3">
                 <div class="frosted-card-header">
                     <h4>Dynamic Rescheduling Solver</h4>
@@ -146,20 +128,20 @@
                 </div>
                 <div class="card-telemetry-row">
                     <span class="text-muted">Cascading Delay Buffer</span>
-                    <span class="text-cyan">+14m Mitigated</span>
+                    <span>+14m Mitigated</span>
                 </div>
-                <button class="card-action-btn btn-launch-operations btn-frosted" data-target-tab="algorithm">Inspect Solver Decisions ➔</button>
+                <button class="card-action-btn btn-launch-operations" data-target-tab="algorithm">Inspect Solver Decisions ➔</button>
             </div>
 
-            <!-- Card 4: Frame 198-240 in Center / Lower Skyline -->
+            <!-- Card 4: Frame 195-240 in Center / Lower Skyline -->
             <div class="frosted-card" id="card-negative-4">
                 <div class="frosted-card-header" style="justify-content: center; margin-bottom: 8px;">
-                    <h4 style="color: var(--color-accent); font-size: 15px;">AIRFIELD DISPATCH & OPERATIONS</h4>
+                    <h4 style="color: var(--color-gold); font-size: 15px;">AIRFIELD DISPATCH & OPERATIONS</h4>
                 </div>
-                <p class="text-muted text-xs" style="margin-bottom: 14px;">
+                <p class="text-muted text-xs" style="margin-bottom: 12px;">
                     Full multi-agent simulation coordinating 18 aircraft, 6 gates, 10 staff categories, and dynamic conflict optimization.
                 </p>
-                <button class="card-action-btn btn-launch-operations btn-frosted" data-target-tab="radar" style="background: rgba(0, 229, 255, 0.2); border-color: var(--color-accent); color: #ffffff; font-weight: 600; padding: 12px;">
+                <button class="card-action-btn btn-launch-operations" data-target-tab="radar" style="background: var(--color-gold); color: #000; font-weight: 700; padding: 12px;">
                     ENTER OPERATIONS MANAGEMENT CONSOLE ➔
                 </button>
             </div>
@@ -170,10 +152,10 @@
         <div class="hud-scrubber-container">
             <span class="text-xs text-muted" style="letter-spacing: 0.08em;">CRUISE FLIGHT SCRUB</span>
             <input type="range" id="flight-scrubber" min="0" max="100" value="0">
-            <span id="hud-frame-counter">FRAME 001 / 480</span>
+            <span id="hud-frame-counter">FRAME 001 / 240</span>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer (Exact Reference Match) -->
         <footer class="hero-footer">
             <div class="flight-route-hud">
                 <span class="route-tag">DEPARTURE</span>
@@ -183,7 +165,7 @@
                 <span>TEB / 17:15 EST</span>
             </div>
             <div class="fleet-protocol-hud">
-                Global Fleet Protocol • Tail N700AL
+                AeroLux Global Fleet Protocol • Tail N700AL
             </div>
         </footer>
 
@@ -198,38 +180,38 @@
         <header class="console-topbar">
             <div class="topbar-left">
                 <div class="topbar-title">
-                    SKYMATRIX AIRFIELD CONTROL <span class="brand-dot"></span>
+                    AEROLUX AIRFIELD CONTROL <span class="brand-dot"></span>
                 </div>
                 <div class="sim-clock-badge" id="sim-clock-display">08:00</div>
             </div>
 
-            <!-- Master Simulation Controls -->
+            <!-- Master Simulation Controls (Section 19) -->
             <div class="topbar-center">
-                <button class="sim-control-btn btn-frosted" id="sim-btn-play">▶ Start</button>
-                <button class="sim-control-btn btn-frosted" id="sim-btn-pause">⏸ Pause</button>
-                <button class="sim-control-btn btn-frosted" id="sim-btn-step">⏩ +5m</button>
-                <button class="sim-control-btn btn-frosted" id="sim-btn-reset">🔄 Reset</button>
+                <button class="sim-control-btn" id="sim-btn-play">▶ Start</button>
+                <button class="sim-control-btn" id="sim-btn-pause">⏸ Pause</button>
+                <button class="sim-control-btn" id="sim-btn-step">⏩ +5m</button>
+                <button class="sim-control-btn" id="sim-btn-reset">🔄 Reset</button>
                 
                 <div style="display: flex; gap: 4px; margin-left: 10px;">
-                    <button class="sim-speed-btn active btn-frosted" data-speed="1">1×</button>
-                    <button class="sim-speed-btn btn-frosted" data-speed="2">2×</button>
-                    <button class="sim-speed-btn btn-frosted" data-speed="5">5×</button>
-                    <button class="sim-speed-btn btn-frosted" data-speed="10">10×</button>
+                    <button class="sim-speed-btn active" data-speed="1">1×</button>
+                    <button class="sim-speed-btn" data-speed="2">2×</button>
+                    <button class="sim-speed-btn" data-speed="5">5×</button>
+                    <button class="sim-speed-btn" data-speed="10">10×</button>
                 </div>
 
                 <input type="range" id="sim-timeline-slider" min="480" max="720" value="480" style="width: 140px; margin-left: 14px;">
             </div>
 
             <div class="topbar-right">
-                <button class="sim-control-btn btn-frosted" id="btn-save-scenario">Save</button>
-                <button class="sim-control-btn btn-frosted" id="btn-load-scenario">Load</button>
-                <button class="sim-control-btn btn-frosted" id="btn-export-json">Export JSON</button>
-                <button class="sim-control-btn btn-frosted" id="btn-export-csv">Export CSV</button>
-                <button class="btn-icon-close btn-frosted" id="btn-close-console" title="Close Console (Esc)">✕</button>
+                <button class="sim-control-btn" id="btn-save-scenario">Save</button>
+                <button class="sim-control-btn" id="btn-load-scenario">Load</button>
+                <button class="sim-control-btn" id="btn-export-json">Export JSON</button>
+                <button class="sim-control-btn" id="btn-export-csv">Export CSV</button>
+                <button class="btn-icon-close" id="btn-close-console" title="Close Console (Esc)">✕</button>
             </div>
         </header>
 
-        <!-- Airport Overview Statistics Ribbon -->
+        <!-- Airport Overview Statistics Ribbon (Section 10) -->
         <div class="stats-ribbon">
             <div class="stat-item"><span class="stat-label">Aircraft:</span> <span class="stat-value" id="stat-total-aircraft">18</span></div>
             <div class="stat-item"><span class="stat-label">Active:</span> <span class="stat-value" id="stat-active-aircraft">12</span></div>
@@ -243,41 +225,41 @@
 
         <!-- Navigation Tabs -->
         <nav class="ops-tabs-nav">
-            <button class="ops-tab-btn active btn-frosted" data-tab="radar">Airfield Radar (2D Map)</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="flights">Flight Fleet & Turnaround</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="gantt">Live Gantt Schedule</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="resources">Resource Dashboard</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="algorithm">Algorithm View & Explainability</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="diff">Before / After Schedule</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="events">Event Simulator & Injection</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="scenarios">Scenario Testing Lab</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="demo-tour">Guided Presentation Tour</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="benchmark">Run Experiment (Benchmark)</button>
-            <button class="ops-tab-btn btn-frosted" data-tab="tests">Automated Tests (24)</button>
+            <button class="ops-tab-btn active" data-tab="radar">Airfield Radar (2D Map)</button>
+            <button class="ops-tab-btn" data-tab="flights">Flight Fleet & Turnaround</button>
+            <button class="ops-tab-btn" data-tab="gantt">Live Gantt Schedule</button>
+            <button class="ops-tab-btn" data-tab="resources">Resource Dashboard</button>
+            <button class="ops-tab-btn" data-tab="algorithm">Algorithm View & Explainability</button>
+            <button class="ops-tab-btn" data-tab="diff">Before / After Schedule</button>
+            <button class="ops-tab-btn" data-tab="events">Event Simulator & Injection</button>
+            <button class="ops-tab-btn" data-tab="scenarios">Scenario Testing Lab</button>
+            <button class="ops-tab-btn" data-tab="demo-tour">Guided Presentation Tour</button>
+            <button class="ops-tab-btn" data-tab="benchmark">Run Experiment (Benchmark)</button>
+            <button class="ops-tab-btn" data-tab="tests">Automated Tests (24)</button>
         </nav>
 
         <!-- Main Tab Content Area -->
         <main class="ops-tab-content-area">
 
-            <!-- TAB 1: AIRFIELD RADAR 2D MAP -->
+            <!-- TAB 1: AIRFIELD RADAR 2D MAP (Section 10) -->
             <div class="ops-tab-panel active" id="tab-panel-radar">
                 <div class="radar-view-container">
                     <div class="canvas-card">
                         <canvas id="airport-canvas"></canvas>
                         <div class="radar-overlay-badge">AIRFIELD RADAR 09L/27R • RUNWAY & GATE MONITOR</div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; background: rgba(14, 20, 29, 0.7); border: 1px solid var(--border-glass); border-radius: 12px; backdrop-filter: blur(16px);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #121922; border: 1px solid var(--border-glass); border-radius: 8px;">
                         <div class="text-xs text-muted">
-                            Active Runway: <strong class="text-cyan">09L (Primary)</strong> | Taxiways: <strong class="text-cyan">Alpha, Bravo, Charlie</strong> | Terminal Gates: <strong class="text-cyan">A01-A03, B01-B03</strong>
+                            Active Runway: <strong class="text-gold">09L (Primary)</strong> | Taxiways: <strong class="text-gold">Alpha, Bravo, Charlie</strong> | Terminal Gates: <strong class="text-gold">A01-A03, B01-B03</strong>
                         </div>
                         <div style="display: flex; gap: 10px;">
-                            <button class="btn-run-scenario btn-frosted" id="btn-start-demo-tour">Start Presentation Tour ⚡</button>
+                            <button class="btn-run-scenario" id="btn-start-demo-tour">Start Presentation Tour ⚡</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 2: FLIGHT FLEET TABLE -->
+            <!-- TAB 2: FLIGHT FLEET TABLE (Section 3) -->
             <div class="ops-tab-panel" id="tab-panel-flights">
                 <div class="data-table-container">
                     <table class="data-table">
@@ -303,14 +285,14 @@
                 </div>
             </div>
 
-            <!-- TAB 3: REAL-TIME GANTT SCHEDULE -->
+            <!-- TAB 3: REAL-TIME GANTT SCHEDULE (Section 11) -->
             <div class="ops-tab-panel" id="tab-panel-gantt">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                     <div class="text-xs text-muted" style="display: flex; gap: 14px;">
                         <span><span style="color:#0284c7;">■</span> Normal</span>
                         <span><span style="color:#d97706;">■</span> Delayed</span>
                         <span><span style="color:#dc2626;">■</span> Emergency</span>
-                        <span><span style="color:#059669;">■</span> Completed</span>
+                        <span><span style="color:#16a34a;">■</span> Completed</span>
                         <span><span style="color:#9333ea;">■</span> Maintenance</span>
                         <span><span style="color:#ea580c;">■</span> Security</span>
                     </div>
@@ -321,35 +303,35 @@
                 </div>
             </div>
 
-            <!-- TAB 4: RESOURCE DASHBOARD -->
+            <!-- TAB 4: RESOURCE DASHBOARD (Section 12) -->
             <div class="ops-tab-panel" id="tab-panel-resources">
-                <h3 style="font-size: 13.5px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">GATES UTILIZATION & STATUS</h3>
+                <h3 style="font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">GATES UTILIZATION & STATUS</h3>
                 <div class="resources-grid" id="resource-gates-list"></div>
 
-                <h3 style="font-size: 13.5px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 24px; margin-bottom: 8px;">STAFF UNITS (10 CATEGORIES)</h3>
+                <h3 style="font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 24px; margin-bottom: 8px;">STAFF UNITS (10 CATEGORIES)</h3>
                 <div class="resources-grid" id="resource-staff-list"></div>
 
-                <h3 style="font-size: 13.5px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 24px; margin-bottom: 8px;">GROUND SUPPORT EQUIPMENT</h3>
+                <h3 style="font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 24px; margin-bottom: 8px;">GROUND SUPPORT EQUIPMENT</h3>
                 <div class="resources-grid" id="resource-equipment-list"></div>
             </div>
 
-            <!-- TAB 5: ALGORITHM VIEW & EXPLAINABILITY -->
+            <!-- TAB 5: ALGORITHM VIEW & EXPLAINABILITY (Section 14 & 18) -->
             <div class="ops-tab-panel" id="tab-panel-algorithm">
-                <div style="background: rgba(16, 24, 34, 0.85); border: 1px solid var(--border-glass); border-radius: 16px; padding: 22px; margin-bottom: 24px; backdrop-filter: blur(20px);">
+                <div style="background: #141c26; border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                         <div>
                             <span class="text-xs text-muted">ACTIVE OPTIMIZATION ALGORITHM</span>
-                            <h3 id="active-solver-name" style="font-size: 16px; color: var(--color-accent);">Priority-Constrained DAG + Critical Path Heuristic</h3>
+                            <h3 id="active-solver-name" style="font-size: 16px; color: var(--color-gold);">Priority-Constrained DAG + Critical Path Heuristic</h3>
                         </div>
                         <div style="display: flex; gap: 24px; font-family: var(--font-mono); font-size: 13px;">
                             <div>Cost Before: <strong id="metric-cost-before">0</strong></div>
                             <div>Cost After: <strong id="metric-cost-after" class="text-success">0</strong></div>
-                            <div>Conflicts Resolved: <strong id="metric-conflicts-resolved" class="text-cyan">0</strong></div>
+                            <div>Conflicts Resolved: <strong id="metric-conflicts-resolved" class="text-gold">0</strong></div>
                             <div>Solve Time: <strong id="metric-solver-time">0 ms</strong></div>
                         </div>
                     </div>
 
-                    <!-- Configurable Weights Sliders -->
+                    <!-- Configurable Weights Sliders (Section 5) -->
                     <div style="border-top: 1px solid var(--border-glass); padding-top: 16px;">
                         <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: #94a3b8;">
                             Configurable Objective Function Weights: <span class="text-xs font-mono">Cost = W1·Delay + W2·Wait + W3·GateConflicts + W4·Idle + W5·Turnaround + W6·Priority</span>
@@ -380,14 +362,14 @@
                                 <input type="range" id="weight-w6" min="2" max="20" step="1.0" value="8.0" style="width: 100%;">
                             </div>
                         </div>
-                        <button class="sim-control-btn btn-frosted" id="btn-reoptimize-weights" style="margin-top: 14px; background: rgba(0, 229, 255, 0.14); border-color: var(--color-accent); color: #ffffff;">
+                        <button class="sim-control-btn" id="btn-reoptimize-weights" style="margin-top: 14px; background: rgba(212, 175, 55, 0.2); border-color: var(--color-gold);">
                             Re-Run Optimizer with Custom Weights ⚡
                         </button>
                     </div>
                 </div>
 
                 <div class="algorithm-view-layout">
-                    <!-- Left: Step-by-Step Solver Decisions -->
+                    <!-- Left: Step-by-Step Solver Decisions (Section 14) -->
                     <div>
                         <h4 style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Solver Execution Audit Trail (Steps 1 - 8)</h4>
                         <div id="algorithm-steps-log">
@@ -395,7 +377,7 @@
                         </div>
                     </div>
 
-                    <!-- Right: Plain-English AI Decision Explainability -->
+                    <!-- Right: Plain-English AI Decision Explainability (Section 18) -->
                     <div>
                         <h4 style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Decision Explainability Cards</h4>
                         <div id="algorithm-explainability-cards">
@@ -405,16 +387,16 @@
                 </div>
             </div>
 
-            <!-- TAB 6: BEFORE / AFTER SCHEDULE COMPARISON -->
+            <!-- TAB 6: BEFORE / AFTER SCHEDULE COMPARISON (Section 16) -->
             <div class="ops-tab-panel" id="tab-panel-diff">
-                <div style="background: rgba(16, 24, 34, 0.85); border: 1px solid var(--border-glass); border-radius: 16px; padding: 20px; margin-bottom: 20px; backdrop-filter: blur(20px);">
+                <div style="background: #141c26; border: 1px solid var(--border-glass); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
                     <div style="display: flex; gap: 24px; font-family: var(--font-mono); font-size: 13px;">
                         <div>Total Delay Before: <strong id="diff-total-before">0 min</strong></div>
                         <div>Total Delay After: <strong id="diff-total-after">0 min</strong></div>
-                        <div>Additional Delay: <strong id="diff-additional-delay" class="text-cyan">0 min</strong></div>
+                        <div>Additional Delay: <strong id="diff-additional-delay" class="text-warning">0 min</strong></div>
                         <div>Affected Aircraft: <strong id="diff-affected-count" class="text-danger">0</strong></div>
                         <div>Unaffected Aircraft: <strong id="diff-unaffected-count" class="text-success">0</strong></div>
-                        <div>Reassigned Resources: <strong id="diff-reassigned-count" class="text-cyan">0</strong></div>
+                        <div>Reassigned Resources: <strong id="diff-reassigned-count" class="text-gold">0</strong></div>
                     </div>
                 </div>
 
@@ -438,7 +420,7 @@
                 </div>
             </div>
 
-            <!-- TAB 7: EVENT SIMULATOR & INJECTION PANEL -->
+            <!-- TAB 7: EVENT SIMULATOR & INJECTION PANEL (Section 8 & 13) -->
             <div class="ops-tab-panel" id="tab-panel-events">
                 <div class="event-injection-container">
                     <!-- 6-Stage Pipeline Visualizer -->
@@ -477,14 +459,14 @@
                     <div id="pipeline-completion-alert" class="pill-tag hidden" style="background: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #10b981; align-self: center;"></div>
 
                     <!-- Target Pickers -->
-                    <div style="display: flex; gap: 16px; background: rgba(18, 26, 38, 0.85); padding: 18px; border-radius: 14px; border: 1px solid var(--border-glass); backdrop-filter: blur(16px);">
+                    <div style="display: flex; gap: 16px; background: #151e29; padding: 16px; border-radius: 10px; border: 1px solid var(--border-glass);">
                         <div style="flex: 1;">
                             <label class="text-xs text-muted">TARGET AIRCRAFT</label>
-                            <select id="event-aircraft-select" style="width: 100%; margin-top: 6px;"></select>
+                            <select id="event-aircraft-select" style="width: 100%; margin-top: 4px;"></select>
                         </div>
                         <div style="width: 180px;">
                             <label class="text-xs text-muted">SEVERITY LEVEL</label>
-                            <select id="event-severity-select" style="width: 100%; margin-top: 6px;">
+                            <select id="event-severity-select" style="width: 100%; margin-top: 4px;">
                                 <option value="low">Low</option>
                                 <option value="medium">Medium</option>
                                 <option value="high" selected>High</option>
@@ -493,65 +475,65 @@
                         </div>
                     </div>
 
-                    <!-- Event Grid with Frosted Glass Buttons -->
+                    <!-- Event Grid -->
                     <div class="quick-events-grid">
-                        <button class="quick-event-btn btn-frosted" data-event-type="aircraft_delay" data-event-title="Enroute Airspace Delay (+25m)">⏱ Aircraft Delay (+25m)</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="equipment_failure" data-event-title="Fuel Truck Bowser Failure">⛽ Fuel Truck Failure</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="equipment_failure" data-event-title="Baggage Vehicle Breakdown">🧳 Baggage Vehicle Failure</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="equipment_failure" data-event-title="Pushback Tug Hydraulic Fault">🚜 Pushback Tractor Failure</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="gate_failure" data-event-title="Gate Jetbridge Electrical Failure">🚪 Gate Failure / Lockout</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="staff_shortage" data-event-title="Ground Staff Shortage">👥 Staff Shortage</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="engine_failure" data-event-title="Aircraft Engine Anomaly Detected">🔥 Engine Failure</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="landing_gear" data-event-title="Landing Gear Sensor Fault">⚙ Landing Gear Problem</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="technical_issue" data-event-title="Electrical System Bus Failure">⚡ Electrical Failure</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="technical_issue" data-event-title="FMS Avionics Software Bug">💻 Avionics Software Bug</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="medical_emergency" data-event-title="Passenger Cardiac Medical Emergency">🚑 Medical Emergency</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="security_incident" data-event-title="Suspicious Baggage & Gate Lockdown">🚨 Security Alert</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="weather_alert" data-event-title="Thunderstorm & Strong Wind Alert">⛈ Weather Alert / Squall</button>
-                        <button class="quick-event-btn btn-frosted" data-event-type="emergency_landing" data-event-title="MAYDAY Emergency Landing Request">✈ Emergency Landing</button>
+                        <button class="quick-event-btn" data-event-type="aircraft_delay" data-event-title="Enroute Airspace Delay (+25m)">⏱ Aircraft Delay (+25m)</button>
+                        <button class="quick-event-btn" data-event-type="equipment_failure" data-event-title="Fuel Truck Bowser Failure">⛽ Fuel Truck Failure</button>
+                        <button class="quick-event-btn" data-event-type="equipment_failure" data-event-title="Baggage Vehicle Breakdown">🧳 Baggage Vehicle Failure</button>
+                        <button class="quick-event-btn" data-event-type="equipment_failure" data-event-title="Pushback Tug Hydraulic Fault">🚜 Pushback Tractor Failure</button>
+                        <button class="quick-event-btn" data-event-type="gate_failure" data-event-title="Gate Jetbridge Electrical Failure">🚪 Gate Failure / Lockout</button>
+                        <button class="quick-event-btn" data-event-type="staff_shortage" data-event-title="Ground Staff Shortage">👥 Staff Shortage</button>
+                        <button class="quick-event-btn" data-event-type="engine_failure" data-event-title="Aircraft Engine Anomaly Detected">🔥 Engine Failure</button>
+                        <button class="quick-event-btn" data-event-type="landing_gear" data-event-title="Landing Gear Sensor Fault">⚙ Landing Gear Problem</button>
+                        <button class="quick-event-btn" data-event-type="technical_issue" data-event-title="Electrical System Bus Failure">⚡ Electrical Failure</button>
+                        <button class="quick-event-btn" data-event-type="technical_issue" data-event-title="FMS Avionics Software Bug">💻 Avionics Software Bug</button>
+                        <button class="quick-event-btn" data-event-type="medical_emergency" data-event-title="Passenger Cardiac Medical Emergency">🚑 Medical Emergency</button>
+                        <button class="quick-event-btn" data-event-type="security_incident" data-event-title="Suspicious Baggage & Gate Lockdown">🚨 Security Alert</button>
+                        <button class="quick-event-btn" data-event-type="weather_alert" data-event-title="Thunderstorm & Strong Wind Alert">⛈ Weather Alert / Squall</button>
+                        <button class="quick-event-btn" data-event-type="emergency_landing" data-event-title="MAYDAY Emergency Landing Request">✈ Emergency Landing</button>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 8: SCENARIO TESTING LAB -->
+            <!-- TAB 8: SCENARIO TESTING LAB (Section 15) -->
             <div class="ops-tab-panel" id="tab-panel-scenarios">
                 <div class="scenarios-grid" id="scenarios-grid">
                     <!-- Populated dynamically with 11 scenarios -->
                 </div>
             </div>
 
-            <!-- TAB 9: GUIDED PRESENTATION TOUR -->
+            <!-- TAB 9: GUIDED PRESENTATION TOUR (Section 24) -->
             <div class="ops-tab-panel" id="tab-panel-demo-tour">
-                <div style="background: rgba(16, 24, 34, 0.85); border: 1px solid var(--border-glass); border-radius: 18px; padding: 28px; max-width: 720px; margin: 0 auto; text-align: center; backdrop-filter: blur(20px);">
-                    <h3 style="font-size: 18px; color: var(--color-accent); margin-bottom: 12px;">AUTOMATED 12-STEP PRESENTATION TOUR</h3>
+                <div style="background: #141c26; border: 1px solid var(--border-glass); border-radius: 12px; padding: 24px; max-width: 720px; margin: 0 auto; text-align: center;">
+                    <h3 style="font-size: 18px; color: var(--color-gold); margin-bottom: 12px;">AUTOMATED 12-STEP PRESENTATION TOUR</h3>
                     <p class="text-muted text-xs" style="line-height: 1.8; margin-bottom: 24px;">
                         Demonstrates the full scheduling algorithm lifecycle to evaluators: normal operations, landings, turnaround tasks, unexpected delay, fuel truck breakdown, dynamic rescheduling, engine issue, emergency landing, convective weather alert, and final optimized delay mitigation.
                     </p>
                     <div style="display: flex; gap: 14px; justify-content: center;">
-                        <button class="btn-run-scenario btn-frosted" id="btn-start-presentation" style="padding: 12px 30px; font-size: 13px;">
+                        <button class="btn-run-scenario" id="btn-start-presentation" style="padding: 12px 28px; font-size: 13px;">
                             Launch Automated Demo Mode ▶
                         </button>
-                        <button class="sim-control-btn btn-frosted" id="btn-stop-presentation" style="padding: 12px 22px;">
+                        <button class="sim-control-btn" id="btn-stop-presentation" style="padding: 12px 20px;">
                             Stop Tour ⏹
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 10: RUN EXPERIMENT (BENCHMARK) -->
+            <!-- TAB 10: RUN EXPERIMENT (BENCHMARK) (Section 26) -->
             <div class="ops-tab-panel" id="tab-panel-benchmark">
-                <div style="background: rgba(16, 24, 34, 0.85); border: 1px solid var(--border-glass); border-radius: 18px; padding: 24px; margin-bottom: 20px; backdrop-filter: blur(20px);">
+                <div style="background: #141c26; border: 1px solid var(--border-glass); border-radius: 12px; padding: 24px; margin-bottom: 20px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <h3 style="font-size: 16px; color: #ffffff;">OPTIMIZER BENCHMARK: STATIC FIFO vs. DYNAMIC CONSTRAINT HEURISTIC</h3>
                             <p class="text-xs text-muted">Evaluates delay mitigation, turnaround throughput, and cascading delay containment under operational stress.</p>
                         </div>
-                        <button class="btn-run-scenario btn-frosted" id="btn-run-benchmark">Run Experiment 📊</button>
+                        <button class="btn-run-scenario" id="btn-run-benchmark">Run Experiment 📊</button>
                     </div>
                 </div>
 
                 <div id="benchmark-results-panel" class="hidden" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div style="background: rgba(20, 28, 40, 0.85); border: 1px solid var(--border-glass); border-radius: 14px; padding: 22px;">
+                    <div style="background: #151e29; border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px;">
                         <h4 style="font-size: 13px; color: #ef4444; margin-bottom: 14px;">SCENARIO A: NO OPTIMIZATION (STATIC / FIFO)</h4>
                         <div class="card-telemetry-row"><span class="text-muted">Total Aircraft Delay</span> <strong id="bench-static-total">0 min</strong></div>
                         <div class="card-telemetry-row"><span class="text-muted">Average Flight Delay</span> <strong id="bench-static-avg">0 min</strong></div>
@@ -559,9 +541,9 @@
                         <div class="card-telemetry-row"><span class="text-muted">Cascading Delays</span> <strong class="text-danger">Uncontrolled Propagation</strong></div>
                     </div>
 
-                    <div style="background: rgba(20, 28, 40, 0.85); border: 1px solid var(--color-accent); border-radius: 14px; padding: 22px; box-shadow: 0 0 25px var(--color-accent-glow);">
+                    <div style="background: #151e29; border: 1px solid var(--color-gold); border-radius: 12px; padding: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-                            <h4 style="font-size: 13px; color: var(--color-accent);">SCENARIO B: DYNAMIC OPTIMIZATION</h4>
+                            <h4 style="font-size: 13px; color: var(--color-gold);">SCENARIO B: DYNAMIC OPTIMIZATION</h4>
                             <span class="pill-tag" id="bench-reduction-pct" style="background: rgba(16, 185, 129, 0.2); color: #10b981; border-color: #10b981;">-68% Delay</span>
                         </div>
                         <div class="card-telemetry-row"><span class="text-muted">Total Aircraft Delay</span> <strong id="bench-opt-total" class="text-success">0 min</strong></div>
@@ -572,9 +554,9 @@
                 </div>
             </div>
 
-            <!-- TAB 11: AUTOMATED TEST SUITE -->
+            <!-- TAB 11: AUTOMATED TEST SUITE (Section 25) -->
             <div class="ops-tab-panel" id="tab-panel-tests">
-                <div style="background: rgba(16, 24, 34, 0.85); border: 1px solid var(--border-glass); border-radius: 16px; padding: 22px; margin-bottom: 20px; backdrop-filter: blur(20px);">
+                <div style="background: #141c26; border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <h3 style="font-size: 16px; color: #ffffff;">AUTOMATED VERIFICATION TEST RUNNER</h3>
@@ -586,7 +568,7 @@
                                 Passed: <strong id="test-report-passed" class="text-success">24</strong> | 
                                 Failed: <strong id="test-report-failed" class="text-danger">0</strong>
                             </div>
-                            <button class="btn-run-scenario btn-frosted" id="btn-run-tests">Run All 24 Tests ⚡</button>
+                            <button class="btn-run-scenario" id="btn-run-tests">Run All 24 Tests ⚡</button>
                         </div>
                     </div>
                 </div>
@@ -599,20 +581,20 @@
         </main>
     </div>
 
-    <!-- TASK DETAIL INSPECTOR MODAL -->
+    <!-- TASK DETAIL INSPECTOR MODAL (Section 11) -->
     <div id="task-detail-modal" class="task-detail-modal-card hidden">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 12px; margin-bottom: 14px;">
             <div>
                 <span class="text-xs text-muted" id="modal-flight-num">AI101</span>
-                <h4 id="modal-task-name" style="color: var(--color-accent); font-size: 15px;">Cabin Cleaning</h4>
+                <h4 id="modal-task-name" style="color: var(--color-gold); font-size: 15px;">Cabin Cleaning</h4>
             </div>
-            <button id="task-modal-close" class="btn-icon-close btn-frosted" style="width: 26px; height: 26px; font-size: 12px;">✕</button>
+            <button id="task-modal-close" class="btn-icon-close" style="width: 26px; height: 26px; font-size: 13px;">✕</button>
         </div>
         <div style="font-size: 12px; display: flex; flex-direction: column; gap: 8px;">
             <div class="card-telemetry-row"><span class="text-muted">Task Code:</span> <strong id="modal-task-code">CLEANING</strong></div>
             <div class="card-telemetry-row"><span class="text-muted">Turnaround Phase:</span> <span id="modal-task-phase">turnaround</span></div>
             <div class="card-telemetry-row"><span class="text-muted">Duration:</span> <span id="modal-task-duration">18 minutes</span></div>
-            <div class="card-telemetry-row"><span class="text-muted">Planned Window:</span> <span id="modal-task-timing" class="text-cyan">08:25 → 08:43</span></div>
+            <div class="card-telemetry-row"><span class="text-muted">Planned Window:</span> <span id="modal-task-timing" class="text-gold">08:25 → 08:43</span></div>
             <div class="card-telemetry-row"><span class="text-muted">Assigned Staff:</span> <span id="modal-task-staff">ST-CC-01 (Cleaning Crew 1)</span></div>
             <div class="card-telemetry-row"><span class="text-muted">Assigned Equipment:</span> <span id="modal-task-equipment">EQ-CV-01 (Van)</span></div>
             <div class="card-telemetry-row"><span class="text-muted">Assigned Gate:</span> <span id="modal-task-gate">Gate A01</span></div>
@@ -621,11 +603,11 @@
         </div>
     </div>
 
-    <!-- PRESENTATION TOUR FLOATING NARRATOR BANNER -->
+    <!-- PRESENTATION TOUR FLOATING NARRATOR BANNER (Section 24) -->
     <div id="demo-tour-banner" class="demo-tour-banner hidden">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h4 id="demo-tour-title" style="color: var(--color-accent); font-size: 13px; text-transform: uppercase;">Step 1: Normal Operations</h4>
-            <button id="btn-stop-demo-tour" class="sim-control-btn btn-frosted" style="padding: 3px 10px; font-size: 10px;">Exit Tour</button>
+            <h4 id="demo-tour-title" style="color: var(--color-gold); font-size: 13px; text-transform: uppercase;">Step 1: Normal Operations</h4>
+            <button id="btn-stop-demo-tour" class="sim-control-btn" style="padding: 2px 8px; font-size: 10px;">Exit Tour</button>
         </div>
         <p id="demo-tour-desc" class="text-xs text-muted" style="margin-top: 6px;">Airfield running nominal schedule.</p>
         <div class="tour-progress-bar">
