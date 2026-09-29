@@ -96,7 +96,7 @@ export class AirportMapVisualizer {
         ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
         ctx.font = '10px Inter, sans-serif';
         ctx.fillText('TERMINAL 1 • MAIN CONCOURSE & INTERNATIONAL PIER', 100, 45);
-        ctx.fillText('AEROLUX PRIVATE AVIATION SUITE', w - 340, 45);
+        ctx.fillText('IMPERIUM PRIVATE AVIATION SUITE', w - 340, 45);
     }
 
     drawRunways(ctx, w, h) {
@@ -164,8 +164,8 @@ export class AirportMapVisualizer {
         ctx.lineTo(920, 160);
         ctx.stroke();
 
-        // Yellow taxi guidelines
-        ctx.strokeStyle = '#d4af37';
+        // Taxi guidelines (sky blue)
+        ctx.strokeStyle = '#38bdf8';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([8, 8]);
         ctx.beginPath();
@@ -314,13 +314,13 @@ export class AirportMapVisualizer {
         const isExecutive = ac.category === 'Executive';
 
         // Fuselage
-        ctx.fillStyle = isEmergency ? '#ef4444' : (isExecutive ? '#d4af37' : '#ffffff');
+        ctx.fillStyle = isEmergency ? '#ef4444' : (isExecutive ? '#38bdf8' : '#ffffff');
         ctx.beginPath();
         ctx.ellipse(0, 0, 18, 5, 0, 0, Math.PI * 2);
         ctx.fill();
 
         // Main Wings
-        ctx.fillStyle = isEmergency ? '#dc2626' : (isExecutive ? '#b45309' : '#cbd5e1');
+        ctx.fillStyle = isEmergency ? '#dc2626' : (isExecutive ? '#0284c7' : '#cbd5e1');
         ctx.beginPath();
         ctx.moveTo(-2, -18);
         ctx.lineTo(4, 0);

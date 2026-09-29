@@ -169,14 +169,19 @@ class App {
         });
 
         // Demo Tour Controls
-        document.getElementById('btn-start-demo-tour')?.addEventListener('click', () => {
+        const handleStartTour = () => {
             this.openOperationsConsole('radar');
             this.demoTour.start();
-        });
-        document.getElementById('btn-stop-demo-tour')?.addEventListener('click', () => {
+        };
+        const handleStopTour = () => {
             this.demoTour.stop();
             document.getElementById('demo-tour-banner')?.classList.add('hidden');
-        });
+        };
+
+        document.getElementById('btn-start-demo-tour')?.addEventListener('click', handleStartTour);
+        document.getElementById('btn-start-presentation')?.addEventListener('click', handleStartTour);
+        document.getElementById('btn-stop-demo-tour')?.addEventListener('click', handleStopTour);
+        document.getElementById('btn-stop-presentation')?.addEventListener('click', handleStopTour);
     }
 
     switchTab(tabId) {
@@ -320,7 +325,7 @@ class App {
                     <h4>${sc.name}</h4>
                 </div>
                 <p class="scenario-card-desc">${sc.description}</p>
-                <button class="btn-run-scenario" data-scenario-id="${sc.id}">Load & Execute Scenario ⚡</button>
+                <button class="btn-run-scenario" data-scenario-id="${sc.id}">Load & Execute Scenario</button>
             </div>
         `).join('');
 
@@ -380,15 +385,15 @@ class App {
                 currentTime: this.sim.currentTime,
                 failures: this.resourceManager.failures
             };
-            localStorage.setItem('aerolux_saved_scenario', JSON.stringify(payload));
-            alert('Scenario successfully saved to local browser storage.');
+            localStorage.setItem('imperium_saved_scenario', JSON.stringify(payload));
+            this.showToast('Scenario successfully saved to browser storage.');
         });
 
         // Load
         document.getElementById('btn-load-scenario')?.addEventListener('click', () => {
-            const data = localStorage.getItem('aerolux_saved_scenario');
+            const data = localStorage.getItem('imperium_saved_scenario');
             if (!data) {
-                alert('No saved scenario found in storage.');
+                this.showToast('No saved scenario found in storage.');
                 return;
             }
             try {
@@ -399,9 +404,9 @@ class App {
                 this.renderFleetTable();
                 this.renderResources();
                 if (this.ganttChart) this.ganttChart.render();
-                alert('Scenario loaded successfully.');
+                this.showToast('Scenario loaded successfully.');
             } catch (e) {
-                alert('Error parsing scenario data.');
+                this.showToast('Error parsing scenario data.');
             }
         });
 
@@ -514,11 +519,29 @@ class App {
 
         // Hero Frosted Card telemetry sync
         const heroStatPlanes = document.getElementById('hero-stat-planes');
+        const heroStatInAir = document.getElementById('hero-stat-inair');
         const heroStatOnTime = document.getElementById('hero-stat-ontime');
+        const heroStatBaggage = document.getElementById('hero-stat-baggage');
+        const heroStatFuel = document.getElementById('hero-stat-fuel');
+
         if (heroStatPlanes) heroStatPlanes.textContent = `${stats.active} Active`;
+        if (heroStatInAir) heroStatInAir.textContent = `${stats.inAir || Math.max(1, stats.active - stats.landed)} Airborne`;
         if (heroStatOnTime) {
-            const onTimePct = Math.round(((stats.total - stats.delayed) / stats.total) * 100);
-            heroStatOnTime.textContent = `${onTimePct}% On-Time`;
+            if (stats.delayed === 0) {
+                heroStatOnTime.textContent = '0 Delays (100% On-Time)';
+                heroStatOnTime.className = 'text-success';
+            } else {
+                heroStatOnTime.textContent = `${stats.delayed} Flight${stats.delayed > 1 ? 's' : ''} Delayed`;
+                heroStatOnTime.className = 'text-warning';
+            }
+        }
+        if (heroStatBaggage) {
+            const bagCount = (stats.landed * 165 + 1420).toLocaleString();
+            heroStatBaggage.textContent = `${bagCount} Units • In Process`;
+        }
+        if (heroStatFuel) {
+            const fuelCount = (stats.landed * 12400 + 52000).toLocaleString();
+            heroStatFuel.textContent = `${fuelCount} L Hydrant Delivered`;
         }
 
         // Live Logs
@@ -809,6 +832,24 @@ class App {
         document.getElementById('modal-task-delay-reason').textContent = task.delayReason || 'Operating within scheduled nominal tolerance';
 
         modal.classList.remove('hidden');
+    }
+
+    showToast(message) {
+        let toast = document.getElementById('app-floating-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'app-floating-toast';
+            toast.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:9999;background:rgba(15,23,42,0.85);backdrop-filter:blur(16px);border:1px solid rgba(56,189,248,0.4);border-radius:9999px;padding:10px 22px;color:#ffffff;font-size:12px;font-family:var(--font-sans);box-shadow:0 10px 30px rgba(0,0,0,0.5),0 0 20px rgba(56,189,248,0.25);transition:all 0.3s ease;pointer-events:none;opacity:0;transform:translateY(10px);display:flex;align-items:center;gap:8px;';
+            document.body.appendChild(toast);
+        }
+        toast.innerHTML = `<span style="width:6px;height:6px;border-radius:50%;background:#38bdf8;box-shadow:0 0 8px #38bdf8;display:inline-block;"></span> ${message}`;
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+        clearTimeout(this._toastTimeout);
+        this._toastTimeout = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(10px)';
+        }, 3200);
     }
 }
 

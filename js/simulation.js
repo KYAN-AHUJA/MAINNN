@@ -174,6 +174,7 @@ export class SimulationEngine {
         const stats = {
             total: this.aircraft.length,
             active: 0,
+            inAir: 0,
             landed: 0,
             atGates: 0,
             boarding: 0,
@@ -184,12 +185,17 @@ export class SimulationEngine {
 
         for (const ac of this.aircraft) {
             if (ac.status !== 'Departed' && ac.status !== 'Flight scheduled') stats.active++;
+            if (['Holding Pattern', 'Approaching airport', 'Landing', 'Departing', 'En Route'].includes(ac.status)) stats.inAir++;
             if (['At Gate', 'Turnaround', 'Boarding', 'Pushback', 'Taxi to assigned gate'].includes(ac.status)) stats.landed++;
             if (['At Gate', 'Turnaround', 'Boarding'].includes(ac.status)) stats.atGates++;
             if (ac.status === 'Boarding') stats.boarding++;
             if (ac.status === 'Turnaround') stats.turnaround++;
             if (ac.delayDuration > 0) stats.delayed++;
             if (ac.priority === 'Emergency' || ac.emergencyStatus !== 'None') stats.emergency++;
+        }
+
+        if (stats.inAir === 0 && stats.active > stats.landed) {
+            stats.inAir = stats.active - stats.landed;
         }
 
         return stats;

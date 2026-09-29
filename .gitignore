@@ -1,8 +1,16 @@
+# Node
+node_modules/
+package-lock.json
+
+# Backups & Temp
+*.bak
+*.tmp
+*.log
+
+# Environment
+.env
+
 # OS files
 Thumbs.db
 Desktop.ini
 .DS_Store
-
-# Temporary files
-*.tmp
-*.log
