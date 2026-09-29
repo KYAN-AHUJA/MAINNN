@@ -1,18 +1,18 @@
-# AEROLUX • Simulation-Based Airport Scheduling and Ground Operations Management System
+# SKYMATRIX • Simulation-Based Airport Scheduling and Ground Operations Management System
 
-A production-grade, interactive airport operations simulation and dynamic turnaround scheduling engine with an **atmos.leeroy.ca / igloo.inc style scroll experience** driven by a 240-frame cinematic aerospace sequence.
+A production-grade, interactive airport operations simulation and dynamic turnaround scheduling engine with an **atmos.leeroy.ca / igloo.inc style scroll experience** driven by a 240-frame (480 virtual interpolated steps) cinematic aerospace sequence.
 
 ---
 
 ## 🌟 Key Highlights & Design Alignment
 
-* **Exact Layout Match**: Implements the luxury aerospace design reference from the provided layout (`media_1790656803151.png`):
-  * Header brand: `AEROLUX •` with an amber navigation beacon
-  * Top navigation pills: `In Hangar`, `In Air`, `Routes`, `Operations Console`, `Inquire`
+* **Exact Layout Match**: Implements the luxury aerospace design reference:
+  * Header brand: `SKYMATRIX •` with an electric cyan navigation beacon
+  * Top navigation pills: `Live Operations ⚡`, `Airfield Radar`, `Routes`, `Inquire`
   * Hero telemetry chip: `• FLIGHT LEVEL 450 • CRUISE MACH 0.90` (dynamically updates with flight telemetry as you scroll)
   * Title: `IMPERIUM` in editorial serif typography
   * Subtitle & Action buttons: `Fleet Specifications ↗` and `Ground Operations System ⚡`
-  * Footer: `DEPARTURE ZRH / 14:30 CET | ARRIVAL TEB / 17:15 EST` and `AeroLux Global Fleet Protocol • Tail N700AL`
+  * Footer: `DEPARTURE ZRH / 14:30 CET | ARRIVAL TEB / 17:15 EST` and `Global Fleet Protocol • Tail N700AL`
 * **Atmos / Igloo.inc Scroll Engine**:
   * Inertial smooth-scrubbing canvas utilizing all 240 rendered frames (`ezgif-frame-001.png` to `ezgif-frame-240.png`)
   * Two-stage progressive preloader: Frame 1 and keyframes load instantly for zero-latency scrolling

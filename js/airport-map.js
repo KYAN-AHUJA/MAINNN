@@ -96,7 +96,7 @@ export class AirportMapVisualizer {
         ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
         ctx.font = '10px Inter, sans-serif';
         ctx.fillText('TERMINAL 1 • MAIN CONCOURSE & INTERNATIONAL PIER', 100, 45);
-        ctx.fillText('AEROLUX PRIVATE AVIATION SUITE', w - 340, 45);
+        ctx.fillText('IMPERIUM PRIVATE AVIATION SUITE', w - 340, 45);
     }
 
     drawRunways(ctx, w, h) {
@@ -164,8 +164,8 @@ export class AirportMapVisualizer {
         ctx.lineTo(920, 160);
         ctx.stroke();
 
-        // Yellow taxi guidelines
-        ctx.strokeStyle = '#d4af37';
+        // Cyan taxi guidelines
+        ctx.strokeStyle = '#38bdf8';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([8, 8]);
         ctx.beginPath();
@@ -191,13 +191,13 @@ export class AirportMapVisualizer {
 
             // Gate Bay Box
             ctx.fillStyle = g.status === 'maintenance' ? 'rgba(239, 68, 68, 0.15)' : 'rgba(255, 255, 255, 0.03)';
-            ctx.strokeStyle = g.status === 'maintenance' ? '#ef4444' : 'rgba(212, 175, 55, 0.4)';
+            ctx.strokeStyle = g.status === 'maintenance' ? '#ef4444' : 'rgba(0, 229, 255, 0.4)';
             ctx.lineWidth = 1;
             ctx.fillRect(x - 45, y - 20, 90, 75);
             ctx.strokeRect(x - 45, y - 20, 90, 75);
 
             // Gate Label
-            ctx.fillStyle = g.status === 'maintenance' ? '#f87171' : '#f59e0b';
+            ctx.fillStyle = g.status === 'maintenance' ? '#f87171' : '#00e5ff';
             ctx.font = 'bold 11px Inter, sans-serif';
             ctx.fillText(g.id, x - 12, y - 6);
 
@@ -314,13 +314,13 @@ export class AirportMapVisualizer {
         const isExecutive = ac.category === 'Executive';
 
         // Fuselage
-        ctx.fillStyle = isEmergency ? '#ef4444' : (isExecutive ? '#d4af37' : '#ffffff');
+        ctx.fillStyle = isEmergency ? '#ef4444' : (isExecutive ? '#00e5ff' : '#ffffff');
         ctx.beginPath();
         ctx.ellipse(0, 0, 18, 5, 0, 0, Math.PI * 2);
         ctx.fill();
 
         // Main Wings
-        ctx.fillStyle = isEmergency ? '#dc2626' : (isExecutive ? '#b45309' : '#cbd5e1');
+        ctx.fillStyle = isEmergency ? '#dc2626' : (isExecutive ? '#0284c7' : '#cbd5e1');
         ctx.beginPath();
         ctx.moveTo(-2, -18);
         ctx.lineTo(4, 0);
@@ -356,7 +356,7 @@ export class AirportMapVisualizer {
         const isHigh = ac.priority === 'High' || ac.priority === 'Critical';
 
         ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-        ctx.strokeStyle = isEmergency ? '#ef4444' : (isHigh ? '#f59e0b' : 'rgba(255, 255, 255, 0.2)');
+        ctx.strokeStyle = isEmergency ? '#ef4444' : (isHigh ? '#00e5ff' : 'rgba(255, 255, 255, 0.2)');
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.roundRect(x + 12, y - 24, 75, 26, 4);
@@ -372,7 +372,7 @@ export class AirportMapVisualizer {
         ctx.fillText(ac.aircraftType.split(' ')[0], x + 16, y - 3);
 
         if (ac.delayDuration > 0) {
-            ctx.fillStyle = '#f59e0b';
+            ctx.fillStyle = '#38bdf8';
             ctx.font = 'bold 8px monospace';
             ctx.fillText(`+${ac.delayDuration}m`, x + 56, y - 13);
         }
